@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block title %}Actors{% endblock %}
+
+{% block content %}
+{% if actors %}
+  <h2>Actors</h2>
+<table class="table">
+<thead>
+  <tr>
+    <th scope="col">#</th>
+    <th scope="col">Name</th>
+    <th scope="col">Age</th>
+  </tr>
+</thead>
+<tbody>
+
+  {% for actor in actors %}
+      <tr>
+        <th scope="row">{{actor.name}}</th>
+        <td>{{actor.age}}</td>
+    </tr>
+    {% endfor %}
+</tbody>
+</table>
+
+{% else %}
+  <h2>actors table is empty</h2>
+{% endif %}
+{%endblock%}
