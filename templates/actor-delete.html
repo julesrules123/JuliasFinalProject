@@ -1,0 +1,19 @@
+{% extends "base.html"%}
+{% block title %}Delete Actors {% endblock %}
+
+{% block content %}
+<div class="container">
+    <h1 class="mt-5"><i class="fa fa-music" aria-hidden="true"></i> Delete Actor:</h1>
+    <form action="/actors/delete/{{actor.id}}" method="post">
+      <div class="form-group">
+        <label>Name</label>
+        <input class="form-control" type="text" name="name" value="{{actor.name}}" required="true" readonly="true">
+      </div>
+      <div class="form-group">
+        <label>Age</label>
+        <textarea class="form-control" name="age" required="true" readonly="true">{{actor.age}}</textarea>
+      </div>
+      <button type="submit" class="btn btn-danger" id="delete_btn">Delete</button>
+    </form>
+  </div>
+  {% endblock %}

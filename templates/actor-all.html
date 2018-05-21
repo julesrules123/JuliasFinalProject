@@ -3,28 +3,35 @@
 {% block title %}Actors{% endblock %}
 
 {% block content %}
-{% if actors %}
-  <h2>Actors</h2>
-<table class="table">
-<thead>
-  <tr>
-    <th scope="col">#</th>
-    <th scope="col">Name</th>
-    <th scope="col">Age</th>
-  </tr>
-</thead>
-<tbody>
-
-  {% for actor in actors %}
+<div class="container">
+    <h1 class="mt-5"><i class="fa fa-user-circle-o" aria-hidden="true"></i> Actors: </h1>
+    <div class="row bottom-margin">
+      <a href="/actors/add" class="btn btn-primary" role="button" aria-disabled="true">Add Actors</a>
+    </div>
+  {% if actors %}
+  <table class="table">
+    <thead>
       <tr>
-        <th scope="row">{{actor.name}}</th>
+        <th>#</th>
+        <th>Name</th>
+        <th>Age</th>
+      </tr>
+    </thead>
+    <tbody>
+    {% for actor in actors %}
+      <tr>
+        <th scope="row">{{actor.id}}</th>
+        <td>{{actor.name}}</td>
         <td>{{actor.age}}</td>
+        <td>
+          <a href="/actors/edit/{{actor.id}}" class="btn btn-success" role="button">Edit</a>
+          <a href="/actors/delete/{{actor.id}}" class="btn btn-danger" role="button">Delete</a>
+        </td>
     </tr>
     {% endfor %}
-</tbody>
-</table>
-
-{% else %}
-  <h2>actors table is empty</h2>
-{% endif %}
+  </tbody>
+  </table>
+  {% else %}
+  <h3>actors table is empty</h3>
+  {% endif %}
 {%endblock%}

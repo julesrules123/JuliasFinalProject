@@ -1,0 +1,19 @@
+{% extends "base.html"%}
+{% block title %}Add Actors {% endblock %}
+
+{% block content %}
+<div class="container">
+    <h1 class="mt-5"><i class="fa fa-user-circle-o" aria-hidden="true"></i> Add Actors:</h1>
+    <form action="/actors/add" method="post" id="add-actor-form">
+      <div class="form-group">
+        <label>Name</label>
+        <input class="form-control" type="text" name="name" placeholder="Name of the Actor/Actress" required="true">
+      </div>
+      <div class="form-group">
+        <label>Age</label>
+        <textarea class="form-control" name="age" placeholder="Age of Actor" required="true"></textarea>
+      </div>
+      <button type="submit" class="btn btn-primary">Add Actor</button>
+    </form>
+  </div>
+{% endblock %}

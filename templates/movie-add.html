@@ -1,0 +1,38 @@
+{% extends "base.html"%}
+{% block title %}Add Movies{% endblock %}
+{% block content%}
+
+  <div class="container">
+    <h1 class="mt-5"><i class="fa fa-music" aria-hidden="true"></i> Add Movies:</h1>
+    <form action="/movies/add" method="post">
+      <div class="form-group">
+        <label>Title</label>
+        <input class="form-control" type="text" name="title" placeholder="Title of the Movie" required="true">
+      </div>
+      <div class="form-group">
+        <label>Year</label>
+        <select class="form-control" name="year">
+          {% for i in range(1930, 2025) %}
+            {% if i == 2018 %}
+              <option selected="selected">{{i}}</option>
+            {% else %}
+              <option>{{i}}</option>
+            {% endif %}
+          {% endfor %}
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Description</label>
+        <input class="form-control" type="text" name="description" placeholder="Description of the Movie" required="true">
+      </div>
+      <div class="form-group">
+        <label>Actor</label>
+        <input class="form-control" name="actor" placeholder="Actor in the Movie" required="true">
+      </div>
+      <div class="form-group">
+        Actor not in the list? <a href="/actors/add" class="btn btn-success" role="button" aria-disabled="true">Add Actors</a>
+      </div>
+      <button type="submit" class="btn btn-primary">Add Movie</button>
+     </form>
+
+{% endblock%}
